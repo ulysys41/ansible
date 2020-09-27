@@ -1,0 +1,38 @@
+{
+    "deploy": {
+        "showPopupOnSuccess": false,
+        "packages": [
+            {
+                "name": "Ansible 2.4 in acme.com"
+                "description": "ansible"
+                "files": [
+                    "**/**"
+                ],
+                "exclude": [
+                    ".vscode/**"
+                ],
+                "deployOnSave": true,
+                "deployOnChange": true,
+                "targets": ["ansible.acme.com folder"]
+            }
+        ],
+        "targets": [
+            {
+                "type": "sftp",
+                "name": "ansible.acme.com folder",
+                "description": "Ansible Folder"
+                "dir": "/Users/kimsunhong/Documents/workspace/ansible",
+                "host": "localhost", "port": 2222,
+                "user": "ansible", "password": "ansible",
+
+                "checkBeforeDeploy": true,
+
+                "mappings": [
+                    {
+                        "source": "/Users/kimsunhong/Documents/workspace/ansible",
+                        "target": "/home/ansible/workspace"
+                    }
+                ]
+            }
+    }
+}
